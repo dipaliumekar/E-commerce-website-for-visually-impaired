@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Empty cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+            margin: 0;
+            background-color: #e2d2fe; /* Keep the background color as #e2d2fe */
+            color: #1f2032; /* Changed text color */
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1f2032; /* Changed background color */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: #fccdcd; /* Changed text color */
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #fccdcd;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            color: #fccdcd;
+            background-color: #1f2032;
+        }
+
+        .box {
+            width: 100%;
+            margin-top: 2%;
+            height: 70%;
+            margin-bottom: 70%;
+            position: fixed;
+        }
+
+        .button3 {
+            background-color: #1f2032;
+            border: none;
+            color: #e2d2fe;
+            padding: 15px 85px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 20px;
+            margin-bottom: 300px;
+            cursor: pointer;
+            border: 0.25px solid #e7e7e7;
+            border-radius: 8px;
+        }
+
+        .button3:hover {
+            background-color:white;
+            color: #1f2032;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/viewprofile">Profile</a>
+    <a href="/viewcart">Cart Item</a>
+    <a href="/orderlist">Order Item</a>
+    <a href="/userappfeedback">Feedback</a>
+    <a href="/contactus">Contact</a>
+    <a href="/viewproduct">Home</a>
+</div>
+
+<div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:#fccdcd" href="/viewproduct">VisioMart</a></span>
+    <span style="font-size:30px;cursor:pointer; float: right;">| Hello,{{u}}</span>
+    <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:#fccdcd" href="/logout">logout</a></span>
+</div>
+
+<center>
+    <div class="box">
+        <img src="\static\emptycart.png" alt="Cloudy Sky">
+        <form>
+            <button class="button3" type="button" onclick="history.back()">Go back!</button>
+        </form>
+    </div>
+</center>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        // Remove the line below to keep the background color as #e2d2fe
+        // document.body.style.backgroundColor = "white";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        // Remove the line below to keep the background color as #e2d2fe
+        // document.body.style.backgroundColor = "white";
+    }
+</script>
+
+</body>
+</html>

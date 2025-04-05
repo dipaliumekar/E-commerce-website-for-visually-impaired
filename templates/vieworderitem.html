@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Sidebar Styles */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1f2032;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #acacb4;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #fccdcd;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Main Content Styles */
+        #main {
+            padding: 16px;
+            color: white;
+            background-color: black;
+        }
+
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Tahoma, Verdana, sans-serif;
+            transition: background-color .5s;
+            margin: 0;
+            background-color: #e2d2fe;
+        }
+
+        /* Other Styles */
+        .bodydiv {
+            width: 97%;
+            margin-top: 1%;
+            margin-left: 1.5%;
+            padding: 1.5%;
+            padding-bottom: 2.5%;
+            background-color: white;
+            border: 0.25px solid #e7e7e7;
+        }
+        
+        .textsize {
+            font-size: 18px;
+            padding: 3%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .box {
+            width: 180px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .details {
+            float: left;
+            width: calc(100% - 220px);
+        }
+
+        .status {
+            clear: both;
+            padding-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/viewprofile">Profile</a>
+    <a href="/viewcart">Cart Item</a>
+    <a href="/orderlist">Order Item</a>
+    <a href="/userappfeedback">Feedback</a>
+    <a href="/contactus">Contact</a>
+    <a href="/viewproduct">Home</a>
+</div>
+
+<!-- Main Content -->
+<div id="main">
+    <span style="font-size:30px;cursor:pointer;color:#fccdcd" onclick="openNav()">&#9776;</span>
+    <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:#fccdcd" href="/viewproduct">VisioMart</a></span>
+    <span style="font-size:30px;cursor:pointer; float: right;color:#fccdcd">| Hello,{{u}}</span>
+    <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:#fccdcd" href="/logout">logout</a></span>
+</div>
+
+<!-- Product Listing -->
+{% for row in productlist %}
+<div class="bodydiv">
+    <div class="box">
+        <img src="static/uploads/{{row.9}}" alt="image"><br>
+    </div>
+    <div class="details">
+      <div><span class="textsize">{{row.8}}</span></div>
+      <div><span class="textsize">{{row.4}}</span></div>
+      <div><span class="textsize"><b>&#x20b9;</b>{{row.6}}</span></div>
+      <div><span class="textsize"><b>Address :</b>{{address}}</span></div>
+  </div>
+  <div class="status">
+      <div><span class="textsize">{{row.10}}</span></div>
+      <div><span class="textsize"><b>Order Id :</b> {{row.0}}</span></div>
+      <div><span class="textsize"><b>Transaction id :</b> {{row.2}}</span></div>
+      <div><span class="textsize"><b>Status :</b> Confirm</span></div>
+  </div>
+</div>
+    <div style="clear:both;"></div>
+</div>
+{% endfor %}
+
+<!-- JavaScript for Sidebar -->
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "#e2d2fe";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "#e2d2fe";
+    }
+</script>
+
+</body>
+</html>
